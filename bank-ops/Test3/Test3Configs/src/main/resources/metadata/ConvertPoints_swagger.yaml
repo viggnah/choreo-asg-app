@@ -1,0 +1,28 @@
+openapi: 3.0.1
+info:
+  title: ConvertPoints
+  description: API Definition of ConvertPoints
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/convertpoints
+paths:
+  /{name}/{currency}:
+    get:
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: currency
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="GetPointsEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="https://e767ed37-eb8c-43d6-aa4f-0a1bb02aa687-dev.e1-eu-north-azure.choreoapis.dev/nqbp/loyaltyservice/loyalty-api-5c6/1.0.0/loyalty?name={uri.var.name}">
+        <suspendOnFailure>
+            <initialDuration>-1</initialDuration>
+            <progressionFactor>1.0</progressionFactor>
+        </suspendOnFailure>
+        <markForSuspension>
+            <retriesBeforeSuspension>2</retriesBeforeSuspension>
+        </markForSuspension>
+        <authentication>
+            <oauth>
+                <clientCredentials>
+                    <clientId>OBx_6b2ADFiL07QGlR99Qzvw1U4a</clientId>
+                    <clientSecret>VMWVfVl8fIXK1iEVxOWOLtSRUWUPbBZbHMmWniGYPhwa</clientSecret>
+                    <tokenUrl>https://api.asgardeo.io/t/viggnah/oauth2/token</tokenUrl>
+                    <authMode>Header</authMode>
+                </clientCredentials>
+            </oauth>
+        </authentication>
+    </http>
+</endpoint>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/convertpoints" name="ConvertPoints" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/{name}/{currency}">
+        <inSequence>
+            <log level="full"/>
+            <call>
+                <endpoint key="GetPointsEP"/>
+            </call>
+            <propertyGroup>
+                <property expression="json-eval($.totalNumberOfPoints)" name="points" scope="default" type="STRING"/>
+            </propertyGroup>
+            <log level="full">
+                <property expression="$ctx:points" name="POINTS"/>
+            </log>
+            <call>
+                <endpoint key="GetExchangeEP"/>
+            </call>
+            <propertyGroup>
+                <property expression="json-eval($.rate)" name="rate" scope="default" type="STRING"/>
+            </propertyGroup>
+            <payloadFactory media-type="json">
+                <format>{"user": $1, "points": $2, "currency": $3, "currency_rate": $4, "converted_points": $5}</format>
+                <args>
+                    <arg evaluator="xml" expression="uri.var.name"/>
+                    <arg evaluator="xml" expression="$ctx:points"/>
+                    <arg evaluator="xml" expression="uri.var.currency"/>
+                    <arg evaluator="xml" expression="$ctx:rate"/>
+                    <arg evaluator="xml" expression="($ctx:points*0.01)*$ctx:rate"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

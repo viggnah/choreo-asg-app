@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="ConvertPoints" groupId="com.test3.org.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/ConvertPoints.xml</file>
+    </artifact>
+    <artifact name="ConvertPoints_swagger" groupId="com.test3.org.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/ConvertPoints_swagger.yaml</file>
+    </artifact>
+    <artifact name="ConvertPoints_metadata" groupId="com.test3.org.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/ConvertPoints_metadata.yaml</file>
+    </artifact>
+    <artifact name="GetPointsEP" groupId="com.test3.org.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/GetPointsEP.xml</file>
+    </artifact>
+    <artifact name="GetExchangeEP" groupId="com.test3.org.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/GetExchangeEP.xml</file>
+    </artifact>
+</artifacts>
