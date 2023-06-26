@@ -1,13 +1,20 @@
 import axios from "axios";
-import { Button, Col, Container, Row, Table } from "react-bootstrap";
+import { Button, Col, Container, Row, Table, Alert, DropdownButton, Dropdown, Form } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Hosts } from "../constants/links";
 
 const Customer = () => {
-
     const [points, setPoints] = useState(0);
+    const [currency, setCurrency] = useState('ugx');
+    const [convertedPoints, setConvertedPoints] = useState(0);
+    const options = { 
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2 
+      };
+
     let userName = localStorage.getItem('userName');
     const HOST = Hosts.Loyalty;
+    const HOST_MI = Hosts.Mi;
 
     const headers = {
         headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` },
@@ -18,7 +25,11 @@ const Customer = () => {
         axios.get(HOST + "/loyalty", headers).then(res => {
             setPoints(res.data.totalNumberOfPoints);
         });
-    });
+
+        axios.get(HOST_MI + "/" + encodeURIComponent(userName) + "/" + currency).then(res => {
+            setConvertedPoints(res.data.converted_points);
+        });
+    }, [currency]);
 
 
     return (
@@ -26,6 +37,23 @@ const Customer = () => {
             <Row >
                 <Col>
                     You Currently Have {points} Points to Redeem !
+                </Col>
+            </Row>
+            <Row >
+                <Col>
+                <Form.Group controlId="currencyDropdown">
+                    <Form.Control
+                        as="select"
+                        value={currency}
+                        onChange={e => setCurrency(e.target.value)}
+                    >
+                        <option value="ugx">UGX</option>
+                        <option value="mwk">MWK</option>
+                    </Form.Control>
+                </Form.Group>
+                </Col>
+                <Col>
+                    <Alert variant="info">Your current {points} Points gives you {Number(convertedPoints).toLocaleString('en', options)} {currency.toUpperCase()} </Alert>
                 </Col>
             </Row>
             <Row className="mt-5" >

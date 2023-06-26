@@ -21,5 +21,6 @@ export const AsgardeoConfig = {
 // };
 
 export const Hosts = {
-    Loyalty: "https://e767ed37-eb8c-43d6-aa4f-0a1bb02aa687-dev.e1-eu-north-azure.choreoapis.dev/nqbp/loyaltyservice/loyalty-api-5c6/1.0.0"
+    Loyalty: "https://e767ed37-eb8c-43d6-aa4f-0a1bb02aa687-dev.e1-eu-north-azure.choreoapis.dev/nqbp/loyaltyservice/loyalty-api-5c6/1.0.0",
+    Mi: "http://localhost:8290/convertpoints"
  };
