@@ -16,8 +16,8 @@ const Manage = () => {
     useEffect(() => {
         const authorizationHeader = {
             headers: { 
-                // Authorization: `Bearer ${localStorage.getItem('accessToken')}` 
-                Authorization: `Bearer ${Hosts.LoyaltyAccessToken}`
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}` 
+                // Authorization: `Bearer ${Hosts.LoyaltyAccessToken}`
             }
         };
         axios.get(HOST + "/loyalty/all", authorizationHeader).then((responseData) => {
@@ -29,8 +29,8 @@ const Manage = () => {
     async function submitPoints(event) {
         const authorizationHeader = {
             headers: { 
-                // Authorization: `Bearer ${localStorage.getItem('accessToken')}` 
-                Authorization: `Bearer ${Hosts.LoyaltyAccessToken}`
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}` 
+                // Authorization: `Bearer ${Hosts.LoyaltyAccessToken}`
             }
         };
         let data = { "name": customerId, "totalNumberOfPoints": points };

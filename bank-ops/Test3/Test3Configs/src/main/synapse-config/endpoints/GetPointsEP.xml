@@ -12,7 +12,7 @@
             <oauth>
                 <clientCredentials>
                     <clientId>OBx_6b2ADFiL07QGlR99Qzvw1U4a</clientId>
-                    <clientSecret>VMWVfVl8fIXK1iEVxOWOLtSRUWUPbBZbHMmWniGYPhwa</clientSecret>
+                    <clientSecret></clientSecret>
                     <tokenUrl>https://api.asgardeo.io/t/viggnah/oauth2/token</tokenUrl>
                     <authMode>Header</authMode>
                 </clientCredentials>

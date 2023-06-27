@@ -66,8 +66,14 @@ const Navigation = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
-                        { group === 'Manager' && <Nav.Link as={Link} to="/manage">Manage</Nav.Link>}
-                        { group === 'User' && <Nav.Link as={Link} to="/points">MyPoints</Nav.Link >}
+                        { 
+                            group === 'Manager' && 
+                            <Nav.Link as={Link} to="/manage">Manage</Nav.Link>
+                        }
+                        { 
+                            group === 'User' && 
+                            <Nav.Link as={Link} to="/points">MyPoints</Nav.Link >
+                        }
                     </Nav>
                 </Navbar.Collapse>
                 <Navbar.Collapse className="justify-content-end">
