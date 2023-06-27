@@ -50,6 +50,7 @@ const LoginStatusBar = props => {
         );
     } else {
         return <Nav.Link onClick={() => signIn()}>Login</Nav.Link>
+        // return <></>
     }
 }
 
