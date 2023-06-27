@@ -13,11 +13,15 @@ const Customer = () => {
       };
 
     let userName = localStorage.getItem('userName');
+    // let userName = Hosts.LoyaltyUserName;
     const HOST = Hosts.Loyalty;
     const HOST_MI = Hosts.Mi;
 
     const headers = {
-        headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` },
+        headers: { 
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            // Authorization: `Bearer ${Hosts.LoyaltyAccessToken}`
+        },
         params: { name: userName }
     };
 
